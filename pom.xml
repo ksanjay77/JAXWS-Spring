@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.javacodegeeks.enterprise.ws</groupId>
+	<artifactId>JAXWS-Spring</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+	<name>JAXWS-Spring</name>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>emma-maven-plugin</artifactId>
+				<version>1.0-alpha-3</version>
+				<inherited>true</inherited>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>instrument</goal>
+						</goals>
+						<configuration>
+							<emma>
+								<enable>true</enable>
+								<classFolders>${project.build.outputDirectory}</classFolders>
+								<outputDirectory>${project.build.outputDirectory}</outputDirectory>
+							</emma>
+						</configuration>
+					</execution>	
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- <profiles> <profile> <id>emma</id> <build> <plugins> <plugin> <groupId>com.jayway.maven.plugins.android.generation2</groupId> 
+		<artifactId>android-maven-plugin</artifactId> <configuration> emma start 
+		<emma> <enable>true</enable> <classFolders>${project.basedir}/target/classes/</classFolders> 
+		<outputMetaFile>${project.basedir}/target/emma/coverage.em</outputMetaFile> 
+		</emma> emma stop <dex> <noLocals>true</noLocals> must be set for emma </dex> 
+		</configuration> <extensions>true</extensions> </plugin> </plugins> </build> 
+		</profile> </profiles> -->
+	<dependencies>
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-core</artifactId> 
+			<version>${spring.version}</version> </dependency> <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-context</artifactId> <version>${spring.version}</version> 
+			</dependency> <dependency> <groupId>org.springframework</groupId> <artifactId>spring-web</artifactId> 
+			<version>${spring.version}</version> </dependency> -->
+		<dependency>
+			<groupId>org.jvnet.jax-ws-commons.spring</groupId>
+			<artifactId>jaxws-spring</artifactId>
+			<version>1.9</version>
+		</dependency>
+
+	</dependencies>
+
+	<properties>
+		<spring.version>3.2.3.RELEASE</spring.version>
+	</properties>
+
+</project>
